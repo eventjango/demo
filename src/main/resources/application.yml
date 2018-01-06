@@ -1,0 +1,21 @@
+
+spring:
+
+  devtools:
+    livereload:
+      enabled: true
+
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 7875
+    driver-class-name: org.postgresql.Driver
+
+
+
