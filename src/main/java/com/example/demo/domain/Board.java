@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.example.demo.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

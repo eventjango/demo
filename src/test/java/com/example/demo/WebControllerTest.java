@@ -1,7 +1,7 @@
 package com.example.demo;
 
 
-import com.example.controller.RestController;
+import com.example.demo.controller.RestController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +11,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-/*
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = {RestController.class})*/
+@WebMvcTest(controllers = {RestController.class})
 public class WebControllerTest {
-/*
 
     @Autowired
     private MockMvc mockMvc;
@@ -32,6 +31,5 @@ public class WebControllerTest {
 
         System.out.println(result.getResponse().getContentAsString());
     }
-*/
 
 }
