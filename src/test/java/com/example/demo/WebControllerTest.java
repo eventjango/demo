@@ -12,10 +12,11 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+/*
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = {RestController.class})
+@WebMvcTest(controllers = {RestController.class})*/
 public class WebControllerTest {
+/*
 
     @Autowired
     private MockMvc mockMvc;
@@ -31,5 +32,6 @@ public class WebControllerTest {
 
         System.out.println(result.getResponse().getContentAsString());
     }
+*/
 
 }
