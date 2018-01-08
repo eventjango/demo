@@ -110,16 +110,16 @@ public class ListTest {
 
         while (listIterator.hasNext()){
 
-            String elememt = (String) listIterator.next();
+            String element = (String) listIterator.next();
 
-            if(elememt.startsWith("m")){
+            if(element.startsWith("m")){
 
                 listIterator.previous();
-                listIterator.set(elememt.toUpperCase());
-                elememt = (String) listIterator.next();
+                listIterator.set(element.toUpperCase());
+                element = (String) listIterator.next();
             }
 
-            log.warn(elememt);
+            log.warn(element);
         }
 
         listIterator.forEachRemaining(n -> log.info(n.toString()));
