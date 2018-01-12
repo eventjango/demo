@@ -1,3 +1,4 @@
+/*
 package com.example.demo.configurer;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -48,3 +49,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .anyRequest().authenticated();
     }
 }
+*/

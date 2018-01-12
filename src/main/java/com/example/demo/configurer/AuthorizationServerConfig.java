@@ -1,3 +1,4 @@
+/*
 package com.example.demo.configurer;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public JwtAccessTokenConverter accessTokenConverter(){
         final JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        /*jwtAccessTokenConverter.setSigningKey("secret");*/
+        */
+/*jwtAccessTokenConverter.setSigningKey("secret");*//*
+
         return jwtAccessTokenConverter;
     }
 
@@ -87,3 +90,4 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     }
 }
+*/

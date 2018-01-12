@@ -1,3 +1,4 @@
+/*
 package com.example.demo.configurer;
 
 
@@ -22,3 +23,4 @@ public class WebConfigurer extends WebMvcConfigurerAdapter{
         super.addInterceptors(registry);
     }
 }
+*/

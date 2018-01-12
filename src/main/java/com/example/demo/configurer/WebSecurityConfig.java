@@ -1,3 +1,4 @@
+/*
 package com.example.demo.configurer;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        /*http
+        */
+/*http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .antMatchers().authenticated()
@@ -33,7 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
 
                 .and()
-                .csrf().disable();*/
+                .csrf().disable();*//*
+
 
         http
                 .authorizeRequests()
@@ -54,3 +57,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password("password").roles("ADMIN");
     }
 }
+*/
