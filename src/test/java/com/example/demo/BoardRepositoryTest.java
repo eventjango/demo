@@ -108,4 +108,41 @@ public class BoardRepositoryTest {
         .forEach(System.out::println);
     }
 
+    @Test
+    @Transactional
+    public void insertAndUpdate(){
+
+        boardRepository.deleteAll();
+
+        List<Board> boardList = Arrays.asList(
+                new Board("test01", "hello0", "kevin"),
+                new Board("test02", "hello1", "jack")
+        );
+
+        boardRepository.save(boardList);
+
+        assertEquals(2, boardRepository.count());
+
+        boardList
+        .replaceAll(n -> { n.setContent("fucking!!!"); return n; } );
+
+        boardRepository.save(boardList);
+
+        boardRepository
+                .findAll()
+                .forEach(System.out::println);
+
+
+        boardRepository
+                .findAll(
+                        (Iterable<Long>)
+                                boardList
+                                        .subList(0, 1)
+                                        .stream()
+                                        .map(n -> n.getNo())
+                                        .collect(Collectors.toList()))
+                .stream()
+                .forEach(System.out::println);
+    }
+
 }
