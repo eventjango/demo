@@ -17,6 +17,10 @@ spring:
     password: 7875
     driver-class-name: org.postgresql.Driver
 
+logging:
+  level:
+    org.hibernate : info
+
 
 
 

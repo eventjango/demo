@@ -8,6 +8,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -55,5 +61,51 @@ public class BoardRepositoryTest {
         boardRepository.save(board);
     }
 
+
+    @Test
+    @Transactional
+    public void saveAndDelete(){
+
+        boardRepository.deleteAll();
+        assertEquals(0, boardRepository.count());
+
+        List<Board> boardList = Arrays.asList(
+                new Board("test01", "hello0", "kevin"),
+                new Board("test02", "hello1", "jack")
+        );
+
+        boardRepository.save(boardList);
+        assertEquals(2, boardRepository.count());
+
+        boardRepository.delete(boardList);
+        assertEquals(0, boardRepository.count());
+    }
+
+
+    @Test
+    @Transactional
+    public void find(){
+
+        boardRepository.deleteAll();
+
+        List<Board> boardList = Arrays.asList(
+                new Board("test01", "hello0", "kevin"),
+                new Board("test02", "hello1", "jack")
+        );
+
+        boardRepository.save(boardList);
+
+        assertEquals(2, boardRepository.count());
+
+        boardRepository
+                .findAll(
+                        (Iterable<Long>)
+                                boardList
+                                .stream()
+                                .map(n -> n.getNo())
+                                .collect(Collectors.toList()))
+        .stream()
+        .forEach(System.out::println);
+    }
 
 }

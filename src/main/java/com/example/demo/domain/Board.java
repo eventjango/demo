@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import lombok.Data;
+import lombok.NonNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,7 +16,8 @@ public class Board {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOARD_SEQ")
+    @SequenceGenerator(name = "BOARD_SEQ", sequenceName = "BOARD_SEQ", allocationSize = 1)
     private Long no;
 
     @Column(nullable = false)
@@ -24,7 +26,7 @@ public class Board {
     @Column
     private String content;
 
-    @Column
+    @Column(updatable = false)
     private String writer;
 
     @CreationTimestamp
@@ -32,4 +34,17 @@ public class Board {
 
     @UpdateTimestamp
     private Timestamp updateDate;
+
+    public Board
+            (
+            String title,
+            String content,
+            String writer)
+    {
+        this.title = title;
+        this.content = content;
+        this.writer = writer;
+    }
+
+    public Board(){}
 }
