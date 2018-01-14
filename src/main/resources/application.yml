@@ -19,6 +19,7 @@ spring:
 
 logging:
   level:
+    org.security : info
     org.hibernate : info
 
 

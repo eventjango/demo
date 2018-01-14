@@ -7,10 +7,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -145,4 +145,85 @@ public class BoardRepositoryTest {
                 .forEach(System.out::println);
     }
 
+
+    @Test
+    @Transactional
+    public void findBy(){
+
+        boardRepository.save(new Board("test01", "hello world", "kevin"));
+
+        assertEquals(1, boardRepository.count());
+
+        assertEquals("test01", boardRepository.findByWriter("kevin").getTitle());
+    }
+
+    @Test
+    @Transactional
+    public void inTest(){
+
+        List<Board> boardList = Arrays.asList(
+                new Board("test01", "hello0", "kevin"),
+                new Board("test02", "hello1", "jack")
+        );
+
+        boardRepository.save(boardList);
+
+        List<Long> longList =
+                boardRepository
+                        .findAll()
+                        .stream()
+                        .map(n -> n.getNo())
+                        .collect(Collectors.toList());
+
+
+        List<Board> resultList =
+        boardRepository
+        .findByNoIn(longList);
+
+        resultList
+                .forEach(System.out::println);
+    }
+
+    @Test
+    @Transactional
+    public void pageTest(){
+
+        List<Board> boardList = Arrays.asList(
+                new Board("test01", "hello0", "kevin"),
+                new Board("test02", "hello1", "jack")
+        );
+
+        boardRepository.save(boardList);
+
+        int number = boardRepository.findAllByNoNotIn(Arrays.asList(0L), new PageRequest(0, 10)).getNumber();
+        int size = boardRepository.findAllByNoNotIn(Arrays.asList(0L), new PageRequest(0, 10)).getSize();
+        int totalPages = boardRepository.findAllByNoNotIn(Arrays.asList(0L), new PageRequest(0, 10)).getTotalPages();
+        int elements = boardRepository.findAllByNoNotIn(Arrays.asList(0L), new PageRequest(0, 10)).getNumberOfElements();
+        long totalElements = boardRepository.findAllByNoNotIn(Arrays.asList(0L), new PageRequest(0, 10)).getTotalElements();
+
+        System.out.println(number);
+        System.out.println(size);
+        System.out.println(totalPages);
+        System.out.println(elements);
+        System.out.println(totalElements);
+    }
+
+
+    @Test
+    @Transactional
+    public void QueryTest(){
+
+        boardRepository
+                .save(
+                        Arrays.asList(
+                                new Board("test01", "hello01", "kevin"),
+                                new Board("test02", "hello02", "jack")
+                        )
+                )
+
+                .forEach(System.out::println);
+
+        boardRepository.selectBoard(36L).forEach(System.out::println);
+
+    }
 }

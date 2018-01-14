@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 public class Board {
 
     @Id
+    @javax.jdo.annotations.Index
     @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOARD_SEQ")
     @SequenceGenerator(name = "BOARD_SEQ", sequenceName = "BOARD_SEQ", allocationSize = 1)
