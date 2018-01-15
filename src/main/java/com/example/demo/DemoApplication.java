@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.example"})
-/*@EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)*/
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		/*SpringApplication.run(DemoApplication.class, args);*/
+		SpringApplication.run(new Class[]{DemoApplication.class, ServletInitializer.class}, args);
 	}
 }

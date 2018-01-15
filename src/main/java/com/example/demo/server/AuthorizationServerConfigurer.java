@@ -2,7 +2,6 @@ package com.example.demo.server;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -18,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 public class AuthorizationServerConfigurer extends AuthorizationServerConfigurerAdapter{
 
 
-    private static String REALM = "MY_OAUTH_REALM";
+    private static final String REALM = "MY_OAUTH_REALM";
 
 
     @Autowired
@@ -29,7 +28,7 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
     private UserApprovalHandler userApprovalHandler;
 
 
-    @Autowired @Qualifier("authenticationManagerBean")
+    @Autowired
     private AuthenticationManager authenticationManager;
 
 

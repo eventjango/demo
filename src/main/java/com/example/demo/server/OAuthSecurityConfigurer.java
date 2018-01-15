@@ -24,12 +24,6 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
     @Autowired
     private ClientDetailsService clientDetailsService;
 
-    @Override
-    @Bean
-    protected AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
     @Bean
     public TokenStore tokenStore(){
         return new InMemoryTokenStore();
