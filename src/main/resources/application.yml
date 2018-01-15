@@ -17,12 +17,15 @@ spring:
     password: 7875
     driver-class-name: org.postgresql.Driver
 
+
 logging:
   level:
     org.security : debug
     org.hibernate : info
     com.example.demo : debug
 
+server:
+  port: 80
 
 
 
