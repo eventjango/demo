@@ -67,9 +67,9 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/oauth/token").permitAll();
 
-       /* http
+        /*http
         .authorizeRequests()
-        .antMatchers("/user/**")
+        .antMatchers("/user")
         .hasRole("ADMIN")
 
         .and()

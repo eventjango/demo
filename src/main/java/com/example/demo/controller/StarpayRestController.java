@@ -22,7 +22,7 @@ public class StarpayRestController {
 
     //-------------------Retrieve All Users--------------------------------------------------------
 
-    @GetMapping("/user/")
+    @GetMapping("/user")
     public ResponseEntity<List<User>> listAllUsers(){
 
         List<User> users = userService.findAllUsers();
