@@ -1,6 +1,7 @@
 package com.example.demo.server;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -9,6 +10,7 @@ import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHand
 
 @Configuration
 @EnableResourceServer
+@Order(1)
 public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
 
 
@@ -33,5 +35,6 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/user/**").access("hasRole('ADMIN')")
                 .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
     }
 }
