@@ -118,7 +118,7 @@ public class StarpayRestController {
 
     //------------------- Delete All Users --------------------------------------------------------
 
-    @DeleteMapping("/user/")
+    @DeleteMapping("/user")
     public ResponseEntity<User> deleteAllUsers() {
         System.out.println("Deleting All Users");
 
