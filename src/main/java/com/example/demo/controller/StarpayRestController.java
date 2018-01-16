@@ -22,7 +22,7 @@ public class StarpayRestController {
 
     //-------------------Retrieve All Users--------------------------------------------------------
 
-    @GetMapping("/user")
+    @GetMapping("/user/")
     public ResponseEntity<List<User>> listAllUsers(){
 
         List<User> users = userService.findAllUsers();
@@ -36,7 +36,7 @@ public class StarpayRestController {
 
     //-------------------Retrieve Single User--------------------------------------------------------
 
-    @GetMapping(value = "/user/{id}"/*, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}*/)
+    @GetMapping(value = "/user/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<User> getUser(@PathVariable("id") long id){
 
         System.out.println("Fetching User with id " + id);
@@ -55,7 +55,7 @@ public class StarpayRestController {
 
     //-------------------Create a User--------------------------------------------------------
 
-    @PostMapping("/user")
+    @PostMapping("/user/")
     public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder uriComponentsBuilder){
 
         System.out.println("Creating User " + user.getName());
@@ -118,7 +118,7 @@ public class StarpayRestController {
 
     //------------------- Delete All Users --------------------------------------------------------
 
-    @DeleteMapping("/user")
+    @DeleteMapping("/user/")
     public ResponseEntity<User> deleteAllUsers() {
         System.out.println("Deleting All Users");
 

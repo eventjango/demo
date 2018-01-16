@@ -44,7 +44,7 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         .scopes("read", "write", "trust")
         .secret("secret")
         .accessTokenValiditySeconds(180)
-        .refreshTokenValiditySeconds(600);
+        .refreshTokenValiditySeconds(360);
     }
 
 

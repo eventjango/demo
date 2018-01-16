@@ -61,15 +61,15 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http
+        http
                 .csrf().disable()
                 .anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/oauth/token").permitAll();*/
+                .antMatchers("/oauth/token").permitAll();
 
-        http
+       /* http
         .authorizeRequests()
-        .antMatchers("/user")
+        .antMatchers("/user/**")
         .hasRole("ADMIN")
 
         .and()
@@ -80,8 +80,8 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
         .disable()
 
         .authorizeRequests()
-        .antMatchers("oauth/token")
-        .permitAll();
+        .antMatchers("/oauth/token")
+        .permitAll();*/
     }
 
     @Override
