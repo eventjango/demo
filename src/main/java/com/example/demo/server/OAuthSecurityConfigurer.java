@@ -54,31 +54,18 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception{
 
-        auth
-                .inMemoryAuthentication()
-                .withUser("bill")
-                .password("abc123")
-                .roles("ADMIN")
-
-                .and()
-                .withUser("bob")
-                .password("abc123")
-                .roles("USER");
+        auth.inMemoryAuthentication()
+                .withUser("bill").password("abc123").roles("ADMIN").and()
+                .withUser("bob").password("abc123").roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-
-        .csrf()
-        .disable()
-
-        .anonymous()
-        .disable()
-
-        .authorizeRequests()
-        .antMatchers("/oauth/token")
-        .permitAll();
+                .csrf().disable()
+                .anonymous().disable()
+                .authorizeRequests()
+                .antMatchers("/oauth/token").permitAll();
     }
 
     @Override

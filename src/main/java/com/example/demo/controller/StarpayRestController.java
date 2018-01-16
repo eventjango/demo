@@ -36,7 +36,7 @@ public class StarpayRestController {
 
     //-------------------Retrieve Single User--------------------------------------------------------
 
-    @GetMapping(value = "/user/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(value = "/user/{id}"/*, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}*/)
     public ResponseEntity<User> getUser(@PathVariable("id") long id){
 
         System.out.println("Fetching User with id " + id);
