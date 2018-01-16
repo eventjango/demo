@@ -2,6 +2,7 @@ package com.example.demo.server;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -29,6 +30,7 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
 
 
     @Autowired
+    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
 
 
@@ -43,7 +45,7 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         .scopes("read", "write", "trust")
         .secret("secret")
         .accessTokenValiditySeconds(180)
-        .accessTokenValiditySeconds(600);
+        .refreshTokenValiditySeconds(600);
     }
 
 
@@ -57,7 +59,7 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
     }
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.realm(REALM + "/client");
+    public void configure(AuthorizationServerSecurityConfigurer oauth) throws Exception {
+        oauth.realm(REALM + "/client");
     }
 }

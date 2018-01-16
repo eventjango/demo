@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,6 +20,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
     @Autowired
@@ -53,15 +55,15 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception{
 
         auth
-        .inMemoryAuthentication()
-        .withUser("IU")
-        .password("dlwldms")
-        .roles("ADMIN")
+                .inMemoryAuthentication()
+                .withUser("bill")
+                .password("abc123")
+                .roles("ADMIN")
 
-        .and()
-        .withUser("ROEN")
-        .password("IULOVE")
-        .roles("USER");
+                .and()
+                .withUser("bob")
+                .password("abc123")
+                .roles("USER");
     }
 
     @Override
@@ -77,6 +79,12 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
         .authorizeRequests()
         .antMatchers("/oauth/token")
         .permitAll();
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
 
