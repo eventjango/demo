@@ -21,6 +21,7 @@ spring:
 logging:
   level:
     org.security : debug
+    org.security.oauth2 : debug
     org.hibernate : info
     com.example.demo : debug
 
