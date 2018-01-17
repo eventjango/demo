@@ -22,6 +22,21 @@ public class StarpayRestController {
 
     //-------------------Retrieve All Users--------------------------------------------------------
 
+
+    @GetMapping("/user/hello")
+    public String helloUser(){
+
+
+        return "hello user";
+    }
+
+
+    @GetMapping("/user/admin")
+    public String helloAdmin(){
+
+        return "hello admin";
+    }
+
     @GetMapping("/user")
     public ResponseEntity<List<User>> listAllUsers(){
 
@@ -55,7 +70,7 @@ public class StarpayRestController {
 
     //-------------------Create a User--------------------------------------------------------
 
-    @PostMapping("/user/")
+    @PostMapping("/user")
     public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder uriComponentsBuilder){
 
         System.out.println("Creating User " + user.getName());
@@ -118,7 +133,7 @@ public class StarpayRestController {
 
     //------------------- Delete All Users --------------------------------------------------------
 
-    @DeleteMapping("/user/")
+    @DeleteMapping("/user")
     public ResponseEntity<User> deleteAllUsers() {
         System.out.println("Deleting All Users");
 
