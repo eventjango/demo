@@ -1,3 +1,4 @@
+/*
 package com.example.demo.server;
 
 
@@ -63,3 +64,4 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         oauth.realm(REALM + "/client");
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.example.demo.server;
 
 import org.springframework.context.annotation.Configuration;
@@ -28,17 +29,24 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
 
         http
                 .anonymous().disable()
-                .requestMatchers().antMatchers("/user/**")
+                .requestMatchers().antMatchers("/user")
                 .and()
 
+                .antMatcher("/user")
                 .authorizeRequests()
-                .antMatchers("/user/**").access("hasRole('ADMIN')")
+                */
+/*.antMatchers("/user/**").access("hasRole('ADMIN')")*//*
+
+                .antMatchers("/user").authenticated()
                 .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
 
-        /*http
+        */
+/*http
         .authorizeRequests()
         .antMatchers("/user/**")
-        .hasRole("ADMIN");*/
+        .hasRole("ADMIN");*//*
+
 
     }
 }
+*/

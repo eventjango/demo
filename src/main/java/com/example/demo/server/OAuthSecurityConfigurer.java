@@ -1,3 +1,4 @@
+/*
 package com.example.demo.server;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +68,9 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/oauth/token").permitAll();
 
-        /*http
+        */
+/*http
+        .antMatcher("/user")
         .authorizeRequests()
         .antMatchers("/user")
         .hasRole("ADMIN")
@@ -81,7 +84,8 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
         .authorizeRequests()
         .antMatchers("/oauth/token")
-        .permitAll();*/
+        .permitAll();*//*
+
     }
 
     @Override
@@ -91,3 +95,4 @@ public class OAuthSecurityConfigurer extends WebSecurityConfigurerAdapter{
     }
 
 }
+*/
