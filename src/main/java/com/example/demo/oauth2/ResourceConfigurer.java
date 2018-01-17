@@ -22,6 +22,7 @@ public class ResourceConfigurer extends ResourceServerConfigurerAdapter{
     @Value("${security.oauth2.resource.id}")
     private String resourceId;
 
+    private final static String antMatcher = "/api/";
 
     @Autowired
     private DefaultTokenServices tokenServices;
@@ -60,19 +61,8 @@ public class ResourceConfigurer extends ResourceServerConfigurerAdapter{
         @Override
         public boolean matches(HttpServletRequest request) {
 
-            // Determine if the resource called is "/api/**"
-
-            String path = request.getServletPath();
-
-            if(path.length() >= 5){
-
-                path = path.substring(0, 5);
-                boolean isApi = path.equals("/api/");
-
-                return isApi;
-            }
-
-            return false;
+            String currentPath = request.getServletPath();
+            return (currentPath.length() >= antMatcher.length())? currentPath.substring(0, antMatcher.length()).equals(antMatcher) : false;
         }
     }
 }
