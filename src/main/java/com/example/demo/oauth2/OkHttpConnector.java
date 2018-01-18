@@ -21,12 +21,8 @@ public class OkHttpConnector {
 
     public static Map<String, Object> getTokenApi(ClientInfo clientInfo){
 
-
         byte[] encoded = Base64.encodeBase64("trusted_app:secret".getBytes());
         byte[] decoded = Base64.decodeBase64(encoded);
-
-        /*String clientCredentials = Base64.getEncoder().encode("trusted_app:secret".getBytes()).toString();
-        String authorization = "Basic " + clientCredentials;*//*Base64.getDecoder().decode(clientCredentials.getBytes()).toString();*/
 
         String authorization = "Basic" + new String(decoded);
 
