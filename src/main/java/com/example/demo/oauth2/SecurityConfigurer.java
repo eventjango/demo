@@ -20,8 +20,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .formLogin().disable()
-                .anonymous().disable()
+                /*.anonymous().disable()*/
                 .httpBasic().and()
+                .authorizeRequests().antMatchers("/token/test", "/token/test2").permitAll()
+                .and()
                 .authorizeRequests().anyRequest().authenticated();
     }
 

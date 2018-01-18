@@ -52,7 +52,8 @@ public class ResourceConfigurer extends ResourceServerConfigurerAdapter{
 
                 .antMatchers("/api/hello").access("hasAnyRole('USER')")
                 .antMatchers("/api/admin").hasRole("ADMIN")
-                .antMatchers("/api/**").authenticated();
+                .antMatchers("/api/test").hasRole("ADMIN")
+                .antMatchers("/api/**").authenticated();/*.and().csrf().disable();*/
     }
 
 
