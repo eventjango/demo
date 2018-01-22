@@ -46,14 +46,14 @@ public class ResourceConfigurer extends ResourceServerConfigurerAdapter{
         http
                 .requestMatcher(new OAuthRequestMatcher())
                 .csrf().disable()
-                .anonymous().disable()
+                /*.anonymous().disable()*/
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
 
                 .antMatchers("/api/hello").access("hasAnyRole('USER')")
                 .antMatchers("/api/admin").hasRole("ADMIN")
-                .antMatchers("/api/test").hasRole("ADMIN")
-                .antMatchers("/api/**").authenticated();/*.and().csrf().disable();*/
+                .antMatchers("/api/test").access("hasAnyRole('USER', 'ANONYMOUS', 'ADMIN')")
+                .antMatchers("/api/*").authenticated();/*.and().csrf().disable();*/
     }
 
 
