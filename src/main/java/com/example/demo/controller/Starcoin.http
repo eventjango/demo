@@ -29,3 +29,31 @@ GET http://192.168.0.3:80/app-api/board/news
 GET https://www.starcoin.tv/app-api/app/version
 
 ###
+
+
+GET http://192.168.0.3:80/api/test
+
+###
+
+GET http://192.168.0.3:80/api/admin
+
+###
+
+
+
+GET http://192.168.0.3:80/api/hello
+
+###
+
+
+
+GET http://192.168.0.3:80/token/test2
+
+###
+
+
+
+GET http://192.168.0.3:80/api/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibXlfYXBpIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXSwiZXhwIjoxNTE2OTI3NzQzLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImNjYjJhMjJlLTkyNGMtNDg4MS04NWJmLTU4OTc3MzViZjdlZiIsImNsaWVudF9pZCI6InRydXN0ZWRfYXBwIn0.ITNvoWYyHeXYNFBf9qp58VOFMTvCz0IF1c-Tj1q6KBw
+
+###
