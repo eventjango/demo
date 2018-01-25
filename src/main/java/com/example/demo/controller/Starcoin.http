@@ -1,0 +1,26 @@
+
+
+GET http://192.168.0.3:80/
+
+###
+
+POST http://192.168.0.3:80/app-api/member/update/access
+Content-type : application/json
+
+{
+    "email" : "jang@lycos.co.kr",
+    "accessCode" : "1111"
+}
+
+###
+
+
+POST http://192.168.0.3:80/app-api/member/login?email=jang@naver.com&password=12345678&deviceType=Android&pushId=APA91bHanYjeMLlpaQKKw_eLY7c95HHlUUpdvxoFsxwIZEB-kvM7nsjKELERRqRJYOVvwRgjd2mFgUAtjg4RRfXU9g519No6ct5_fnHU-C7juRxPZkUFz8_OOUcFEvCN9fGiLXE2HBo5&deviceId=APA91bHanYjeMLlpaQKKw_eLY7c95HHlUUpdvxoFsxwIZEB-kvM7nsjKELERRqRJYOVvwRgjd2mFgUAtjg4RRfXU9g519No6ct5_fnHU-C7juRxPZkUFz8_OOUcFEvCN9fGiLXE2HBo5&nation=ko&accessCode=1234
+
+
+###
+
+
+GET http://192.168.0.3:80/app-api/board/news
+
+###
