@@ -24,3 +24,8 @@ POST http://192.168.0.3:80/app-api/member/login?email=jang@naver.com&password=12
 GET http://192.168.0.3:80/app-api/board/news
 
 ###
+
+
+GET https://www.starcoin.tv/app-api/app/version
+
+###
