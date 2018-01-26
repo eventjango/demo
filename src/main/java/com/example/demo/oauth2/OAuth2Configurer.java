@@ -1,3 +1,4 @@
+/*
 package com.example.demo.oauth2;
 
 
@@ -89,3 +90,4 @@ public class OAuth2Configurer extends AuthorizationServerConfigurerAdapter{
         return defaultTokenServices;
     }
 }
+*/

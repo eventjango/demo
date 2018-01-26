@@ -1,3 +1,4 @@
+/*
 package com.example.demo.oauth2;
 
 import lombok.Data;
@@ -23,3 +24,4 @@ public class ClientInfo {
 
     private String expiresIN;
 }
+*/

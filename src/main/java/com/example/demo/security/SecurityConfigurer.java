@@ -1,5 +1,5 @@
-/*
-package com.example.demo.oauth2;
+package com.example.demo.security;
+
 
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
@@ -12,22 +12,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
+public class SecurityConfigurer  extends WebSecurityConfigurerAdapter{
 
-
+    @Bean("authenticationManager")
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .formLogin().disable()
-                */
-/*.anonymous().disable()*//*
-
-                .httpBasic().and()
-                .authorizeRequests().antMatchers("/token/test", "/token/test2").permitAll()
-                .and()
-                .authorizeRequests().anyRequest().authenticated();
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
     @Override
@@ -36,20 +28,22 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
         auth.inMemoryAuthentication()
 
                 .withUser("user")
-                .password("password")
-                .roles("USER")
+                .password("abcd")
+                .roles("USER");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http.authorizeRequests()
+
+                .antMatchers("/token/test", "/token/test2").permitAll()
 
                 .and()
-                .withUser("admin")
-                .password("admin")
-                .authorities("ROLE_ADMIN");
-    }
+                .httpBasic()
 
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
+                .and()
+                .formLogin();
 
-        return super.authenticationManagerBean();
     }
 }
-*/

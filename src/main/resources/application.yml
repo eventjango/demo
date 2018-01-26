@@ -38,7 +38,11 @@ security:
       client-id: trusted_app
       client-secret: secret
 
-
+oauth:
+  megazone:
+    clinetId : J3LgUqKshaDEm_NvK4gx
+    clientSecret : SbEagQbVrd
+    callbackURL : http://localhost/oauth/callback/megazone
 
 
 
