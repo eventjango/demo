@@ -1,3 +1,4 @@
+/*
 package com.example.demo.controller;
 
 import com.example.demo.domain.User;
@@ -142,3 +143,4 @@ public class StarpayRestController {
     }
 
 }
+*/

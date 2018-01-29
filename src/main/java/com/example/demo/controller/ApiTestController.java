@@ -1,3 +1,4 @@
+/*
 package com.example.demo.controller;
 
 
@@ -32,21 +33,25 @@ public class ApiTestController {
     }
 
 
-    /**
+    */
+/**
      * 졸라 아무 권한 없어도 와라 좀.
      * @param request
      * @return
-     */
+     *//*
+
     @GetMapping("/token/test")
     public RestMessage hello(HttpServletRequest request) throws IOException {
 
-        /*Enumeration<String> headerNames =  request.getHeaderNames();
+        */
+/*Enumeration<String> headerNames =  request.getHeaderNames();
 
         while (headerNames.hasMoreElements()){
             System.out.println(headerNames.nextElement());
         }
 
-        System.out.println("authorization : " + request.getHeader("authorization"));*/
+        System.out.println("authorization : " + request.getHeader("authorization"));*//*
+
 
         String url = "http://localhost:80/oauth/token";
         String urlParams = "grant_type=password&username=admin&password=admin";
@@ -77,16 +82,19 @@ public class ApiTestController {
                 .entrySet()
                 .forEach(System.out::println);
 
-       /* ClientInfo clientInfo = new ClientInfo();
+       */
+/* ClientInfo clientInfo = new ClientInfo();
         clientInfo.setTokenUrl("http://localhost:80/oauth/token");
         clientInfo.setGrant("password");
         clientInfo.setUsername("admin");
         clientInfo.setPassword("admin");
 
-        Map<String, Object> getApi = OkHttpConnector.getTokenApi(clientInfo);*/
+        Map<String, Object> getApi = OkHttpConnector.getTokenApi(clientInfo);*//*
 
 
-       /* BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+       */
+/* BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
         String line;
         StringBuffer stringBuffer = new StringBuffer();
@@ -97,7 +105,8 @@ public class ApiTestController {
 
         bufferedReader.close();
 
-        System.out.println(stringBuffer.toString());*/
+        System.out.println(stringBuffer.toString());*//*
+
 
         return new RestMessage("responseCode : " + responseCode);
     }
@@ -183,3 +192,4 @@ public class ApiTestController {
         return new RestMessage(String.format("Welcome '%s'", principal.getName()));
     }
 }
+*/

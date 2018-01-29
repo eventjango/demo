@@ -29,6 +29,13 @@ server:
   port: 80
 
 
+security:
+  user:
+    name: iu
+    password: roen
+
+
+
 #security:
 
  # oauth2:
@@ -39,11 +46,11 @@ server:
      # client-id: trusted_app
       #client-secret: secret
 
-oauth:
-  megazone:
-    clientId : J3LgUqKshaDEm_NvK4gx
-    clientSecret : SbEagQbVrd
-    callbackURL : http://localhost/oauth/callback/megazone
+#oauth:
+ # megazone:
+  #  clientId : J3LgUqKshaDEm_NvK4gx
+   # clientSecret : SbEagQbVrd
+    #callbackURL : http://localhost/oauth/callback/megazone
 
 
 

@@ -1,3 +1,4 @@
+/*
 package com.example.demo.security;
 
 
@@ -47,3 +48,4 @@ public class SecurityConfigurer  extends WebSecurityConfigurerAdapter{
 
     }
 }
+*/
