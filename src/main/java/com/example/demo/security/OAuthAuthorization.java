@@ -15,8 +15,8 @@ public class OAuthAuthorization  extends AuthorizationServerConfigurerAdapter{
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
         clients.inMemory()
-                .withClient("client_app").secret("123456")
-                .redirectUris("http://localhost:80/callback")
+                .withClient("J3LgUqKshaDEm_NvK4gx").secret("SbEagQbVrd")
+                .redirectUris("http://localhost:80/oauth-api/callback")
                 .authorizedGrantTypes("authorization_code")
                 .scopes("read", "write");
     }

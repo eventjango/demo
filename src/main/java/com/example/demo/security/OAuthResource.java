@@ -14,9 +14,15 @@ public class OAuthResource  extends ResourceServerConfigurerAdapter{
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
+
+        http.authorizeRequests().antMatchers("/oauth-api/**").permitAll()
+
+                .anyRequest().authenticated();
+
+/*
         http.authorizeRequests().anyRequest().authenticated()
 
                 .and()
-                .requestMatchers().antMatchers("/oauth-api/**");
+                .requestMatchers().antMatchers("/oauth-api/**");*/
     }
 }
