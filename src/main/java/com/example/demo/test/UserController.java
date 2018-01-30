@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -65,6 +66,20 @@ public class UserController {
         log.debug("tokenUrl : " + tokenInfo.get("tokenUrl").toString());
         log.debug("accessToken : " + tokenInfo.getString("access_token"));
         log.debug("refreshToken : " + tokenInfo.getString("refresh_token"));
+
+
+        HttpSession session = request.getSession();
+
+        session.setAttribute("access_token", tokenInfo.getString("access_token"));
+        session.setAttribute("token_type", tokenInfo.getString("token_type"));
+        session.setAttribute("refresh_token", tokenInfo.getString("refresh_token"));
+        session.setAttribute("expires_in", tokenInfo.getString("expires_in"));
+
+        String authorization
+                = session.getAttribute("token_type")
+                .toString()
+                .concat(" ")
+                .concat(session.getAttribute("access_token").toString());
 
         return "";
 
