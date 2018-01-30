@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -80,6 +82,19 @@ public class UserController {
                 .toString()
                 .concat(" ")
                 .concat(session.getAttribute("access_token").toString());
+
+        Map<String, Object> headerMap
+                = new HashMap<String, Object>()
+        {
+            {
+                this.put("authorization", authorization);
+            }
+        };
+
+        Map.Entry<String, Object> header =
+
+        headerMap.entrySet()
+                .stream().findFirst().get();
 
         return "";
 
