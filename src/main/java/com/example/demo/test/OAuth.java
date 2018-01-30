@@ -28,9 +28,9 @@ public class OAuth extends AuthorizationServerConfigurerAdapter{
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
         clients.inMemory()
-                .withClient("clientapp").secret("123456")
+                .withClient("naver").secret("J3LgUqKshaDEm_NvK4gx")
                 /*.redirectUris("http://localhost:80/callback")*/
-                .authorizedGrantTypes("authorization_code", "password", "refresh_token", "client_credentials", "implicit")
+                .authorizedGrantTypes("authorization_code", "password", "refresh_token")
                 .scopes("read_profile", "read_contact");
     }
 
