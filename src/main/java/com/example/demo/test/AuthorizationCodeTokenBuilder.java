@@ -23,8 +23,6 @@ public final class AuthorizationCodeTokenBuilder {
         String state = authorizationCodeInfo.getState();
         String tokenUrl = authorizationCodeInfo.getTokenUrl();
 
-        if (code == null) return null;
-
         String params = "code=".concat(code);
 
         params += "&grant_type=".concat(authorizationCodeInfo.getClientInfo().getGrantType());
