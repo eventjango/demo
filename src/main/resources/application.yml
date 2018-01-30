@@ -32,7 +32,7 @@ server:
 security:
   user:
     name: iu
-    password: iulove
+    password: palette
 
 
 
