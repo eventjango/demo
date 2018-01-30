@@ -1,0 +1,7 @@
+
+
+GET http://localhost:80/api/profile
+authorization: bearer ffedb9a8-343f-4f82-a973-85c0a7a15133
+
+
+###
