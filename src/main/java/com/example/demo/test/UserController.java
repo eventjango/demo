@@ -71,13 +71,6 @@ public class UserController {
     }
 
 
-    @GetMapping("/redirected")
-    public String redirected(HttpServletRequest request){
-
-        System.out.println(request);
-        return "";
-    }
-
     @GetMapping("/api/profile")
     public ResponseEntity<UserInfo> profile(){
 
