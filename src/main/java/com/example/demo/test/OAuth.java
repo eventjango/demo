@@ -14,15 +14,15 @@ import javax.annotation.PostConstruct;
 public class OAuth extends AuthorizationServerConfigurerAdapter{
 
 
-    /*@Autowired
+    @Autowired
     private AuthorizationEndpoint authorizationEndpoint;
 
     @PostConstruct
     public void initialize(){
 
-        authorizationEndpoint.setUserApprovalPage("forward:/oauth/custom_confirm_access");
+        /*authorizationEndpoint.setUserApprovalPage("forward:/oauth/custom_confirm_access");*/
         authorizationEndpoint.setErrorPage("forward:/oauth/confirm_error");
-    }*/
+    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {

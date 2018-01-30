@@ -17,6 +17,7 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Controller
@@ -44,6 +45,12 @@ public class UserController {
 
     @GetMapping("/callback")
     public String callback(HttpServletRequest request) throws IOException, JSONException{
+
+        String errorCode = request.getParameter("error");
+
+        if(Objects.nonNull(errorCode)){
+            if(errorCode.equals("access_denied")) return "";
+        }
 
         ClientInfo clientInfo = ClientInfo.builder()
                 .id("naver")
