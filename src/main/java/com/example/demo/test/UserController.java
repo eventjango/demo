@@ -1,8 +1,8 @@
 package com.example.demo.test;
 
 
-import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base64;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,11 @@ import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +45,8 @@ public class UserController {
 
         SecureRandom secureRandom = new SecureRandom();
         String state = new BigInteger(130, secureRandom).toString();
+
+        state = new String(new Base64().encode(state.getBytes()));
 
         authorizeUrl += "&state=".concat(state);
 
@@ -135,9 +139,10 @@ public class UserController {
 
         log.debug(json.toString());
 
-        return "";
+        return "forward:".concat("/result");
 
     }
+
 
 
     @GetMapping("/api/profile")
