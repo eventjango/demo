@@ -1,0 +1,12 @@
+
+
+
+GET http://localhost:8080/api/login?client_id=2oHNrjK0kJQaJk5AhiPOIt&redirect_uri=http://localhost:8080/oauth-api/result-code&scope=read
+
+###
+
+
+GET http://localhost:8080/api/member
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOm51bGwsInNjb3BlIjpbInJlYWQiXSwiZXhwIjoxNTE4MDMyMjY1LCJibG9nIjoiaHR0cHM6Ly9sb25nZmVpemhlbmcuZ2l0aHViLmlvLyIsImF1dGhvcml0aWVzIjpbIlJPTEVfTUFOQUdFIiwiUk9MRV9VU0VSIl0sImp0aSI6IjQ1ODkzZWQwLTU1MDUtNGNhNS04ZmZlLTQxMjgwNzcyMWM2MSIsImNsaWVudF9pZCI6IjJvSE5yakswa0pRYUprNUFoaVBPSXQifQ.TpUjpBlX6x6GiooafC5SngKUOro21F2SYcTDCTtW_r4
+
+###
