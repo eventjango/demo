@@ -18,6 +18,15 @@ spring:
     driver-class-name: org.postgresql.Driver
 
 
+
+     #session:
+      #  store-type: redis
+
+      #redis:
+       # host: 127.0.0.1
+       # port: 6379
+
+
 logging:
   level:
     org.security : debug
@@ -33,6 +42,9 @@ security:
   user:
     name: iu
     password: palette
+
+
+
 
 
 
