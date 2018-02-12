@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -522,5 +523,303 @@ public class StreamTest {
 
                 .forEach(System.out::println);
     }
+
+    /**
+     * group reducing
+     */
+
+    @Test
+    public void count(){
+
+        @Getter
+        @Setter
+        @ToString
+        class Person implements Comparable<Person>{
+
+            int age;
+            String name;
+
+            Person(int age, String name){
+                this.age = age;
+                this.name = name;
+            }
+
+            Person(){}
+
+            Optional<Person> empty(){
+                Person person = new Person();
+                return Optional.ofNullable(person);
+            }
+
+            @Override
+            public int compareTo(Person o) {
+                return this.age - o.age;
+            }
+        }
+
+
+        Stream<Person> persons = Arrays.asList(
+                new Person(10, "kevin"),
+                new Person(20, "may"),
+                new Person(11, "kevin")
+        ).parallelStream();
+
+
+
+        persons
+                .collect(
+                        Collectors.groupingBy(
+                                Person::getName,
+
+                                Collectors.counting()
+                        )
+                )
+                .entrySet().forEach(System.out::println);
+    }
+
+
+    /**
+     * group summing
+     */
+    @Test
+    public void summing(){
+
+        @Getter
+        @Setter
+        @ToString
+        class Person implements Comparable<Person>{
+
+            int age;
+            String name;
+
+            Person(int age, String name){
+                this.age = age;
+                this.name = name;
+            }
+
+            Person(){}
+
+            Optional<Person> empty(){
+                Person person = new Person();
+                return Optional.ofNullable(person);
+            }
+
+            @Override
+            public int compareTo(Person o) {
+                return this.age - o.age;
+            }
+        }
+
+
+        Stream<Person> persons = Arrays.asList(
+                new Person(10, "kevin"),
+                new Person(20, "may"),
+                new Person(11, "kevin")
+        ).parallelStream();
+
+
+        persons
+                .collect(
+                        Collectors.groupingBy(
+
+                                Person::getName,
+
+/*                                HashMap::new,*/
+
+                                Collectors.summingInt
+                                        (
+                                        Person::getAge
+                                )
+                        )
+                )
+
+                .entrySet()
+                .forEach(System.out::println);
+
+    }
+
+
+    @Test
+    public void maxByAndMinBy(){
+
+        @Getter
+        @Setter
+        @ToString
+        class Person implements Comparable<Person>{
+
+            int age;
+            String name;
+
+            Person(int age, String name){
+                this.age = age;
+                this.name = name;
+            }
+
+            Person(){}
+
+            Optional<Person> empty(){
+                Person person = new Person();
+                return Optional.ofNullable(person);
+            }
+
+            @Override
+            public int compareTo(Person o) {
+                return this.age - o.age;
+            }
+        }
+
+
+        Stream<Person> persons = Arrays.asList(
+                new Person(10, "kevin"),
+                new Person(20, "may"),
+                new Person(11, "kevin")
+        ).parallelStream();
+
+
+        persons
+                .collect(
+
+                        Collectors.groupingBy(
+
+                                Person::getName,
+
+                                Collectors.minBy(
+                                        Comparator.comparing(Person::getAge)
+                                )
+                        )
+                )
+
+                .entrySet().forEach(System.out::println);
+    }
+
+    /**
+     * group mapping
+     */
+
+    @Test
+    public void mapping(){
+
+        @Getter
+        @Setter
+        @ToString
+        class Person implements Comparable<Person>{
+
+            int age;
+            String name;
+
+            Person(int age, String name){
+                this.age = age;
+                this.name = name;
+            }
+
+            Person(){}
+
+            Optional<Person> empty(){
+                Person person = new Person();
+                return Optional.ofNullable(person);
+            }
+
+            @Override
+            public int compareTo(Person o) {
+                return this.age - o.age;
+            }
+        }
+
+
+        Stream<Person> persons = Arrays.asList(
+                new Person(10, "kevin"),
+                new Person(20, "may"),
+                new Person(11, "kevin")
+        ).parallelStream();
+
+
+        persons
+                .collect(
+
+                        Collectors.groupingBy(
+
+                                Person::getName,
+
+                                Collectors.mapping(
+
+                                        o -> o.name,
+
+                                        Collectors.toList()
+                                )
+                        )
+                )
+
+                .entrySet()
+                .forEach(System.out::println);
+
+    }
+
+
+    @Test
+    public void groupSummary(){
+
+        @Getter
+        @Setter
+        @ToString
+        class Person implements Comparable<Person>{
+
+            int age;
+            String name;
+
+            Person(int age, String name){
+                this.age = age;
+                this.name = name;
+            }
+
+            Person(){}
+
+            Optional<Person> empty(){
+                Person person = new Person();
+                return Optional.ofNullable(person);
+            }
+
+            @Override
+            public int compareTo(Person o) {
+                return this.age - o.age;
+            }
+        }
+
+
+        Stream<Person> persons = Arrays.asList(
+                new Person(10, "kevin"),
+                new Person(20, "may"),
+                new Person(11, "kevin")
+        ).parallelStream();
+
+
+
+
+        Map<String, IntSummaryStatistics> result =
+
+
+        persons
+                .collect(
+
+                        Collectors.groupingBy(
+
+                                Person::getName,
+
+                                Collectors.summarizingInt(
+                                        Person::getAge
+                                )
+                        )
+                );
+
+
+        result
+                .entrySet()
+                .forEach(
+                        o -> System.out.println(o.getValue().getCount())
+                );
+
+    }
+
+
+
 
 }
