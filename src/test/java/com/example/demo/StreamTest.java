@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import org.junit.Test;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
+import java.util.function.IntConsumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
@@ -819,6 +821,16 @@ public class StreamTest {
 
     }
 
+
+    @Test
+    public void accumulatorAndCombiner(){
+
+        List<String> list = Arrays.asList("kevin", "jack", "may");
+
+        String result = list.parallelStream().reduce("-", (o, o2) -> o2 + o, (r, r2) -> r + r2);
+
+        System.out.println("result : " + result);
+    }
 
 
 
