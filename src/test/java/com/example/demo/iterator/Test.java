@@ -1,4 +1,4 @@
-package com.example.demo.pattern;
+package com.example.demo.iterator;
 
 
 import lombok.extern.java.Log;
@@ -11,9 +11,8 @@ public class Test {
     public void iterator(){
 
         Books books = new Books();
-        books.add(new Book("Dragon Raja", 20000));
-        books.add(new Book("Dragon Ball", 5000));
-
+        books.add(Book.builder().title("Dragon Raja").price(20000).build());
+        books.add(Book.builder().title("Dragon Ball").price(5000).build());
 
         Iterator booksIterator = books.iterator();
 
@@ -21,6 +20,5 @@ public class Test {
             Book book = (Book) booksIterator.next();
             log.info("book : " + book.toString());
         }
-
     }
 }

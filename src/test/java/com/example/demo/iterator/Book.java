@@ -1,9 +1,10 @@
-package com.example.demo.pattern;
+package com.example.demo.iterator;
 
-import com.querydsl.core.BooleanBuilder;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class Book {
 
     private String title;

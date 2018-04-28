@@ -1,4 +1,4 @@
-package com.example.demo.pattern;
+package com.example.demo.iterator;
 
 public interface Iterable {
 
