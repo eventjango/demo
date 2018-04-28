@@ -11,6 +11,7 @@ public class Books implements Iterable {
 
     class BooksIterator implements Iterator{
 
+        // has
         Books books;
 
         int index;
@@ -49,6 +50,8 @@ public class Books implements Iterable {
         return bookList.size();
     }
 
+
+    // create
     @Override
     public Iterator iterator() {
         return new BooksIterator(this);
