@@ -7,12 +7,14 @@ public class BookVisitor implements Visitor {
     @Override
     public void visit(Visitable visitable) {
 
-        log.info("book title : " + cast(visitable, Book.class).getTitle());
-        log.info("book title : " + cast(visitable, Book.class).getPrice());
+        Book book = typeCast(visitable, Book.class);
+
+        log.info("book title : " + book.getTitle());
+        log.info("book title : " + book.getPrice());
     }
 
     @Override
-    public <T> T cast(Visitable visitable, Class<T> object) {
+    public <T> T typeCast(Visitable visitable, Class<T> object) {
         T book = null;
 
         try {

@@ -4,5 +4,5 @@ public interface Visitor {
 
     void visit(Visitable visitable);
 
-    <T> T cast(Visitable visitable, Class<T> object);
+    <T> T typeCast(Visitable visitable, Class<T> object);
 }
