@@ -8,13 +8,14 @@ public class Test {
 
         Book book = Book.builder().title("Dragon-Raja").price(20000).build();
 
-        Visitor visitor = new BookVisitor();
+        Visitor visitor = new BookVisitor(new VisitableTypeCaster());
         visitor.visit(book);
 
         Books books = new Books();
         books.add(book);
 
-        visitor = new BooksVisitor();
+        visitor = new BooksVisitor(new VisitableTypeCaster());
         visitor.visit(books);
     }
+
 }
