@@ -10,7 +10,19 @@ public class Test {
 
         file.name();
 
-        directory.add(file);
-        directory.name();
+        try {
+
+            file.add(file);
+        }
+        catch (FileTreatmentException e){
+
+            e.printStackTrace();
+        }
+
+        finally {
+
+            directory.add(file);
+            directory.name();
+        }
     }
 }

@@ -15,7 +15,7 @@ public class File implements Entry {
 
     @Override
     public void add(Entry entry) {
-        throw new UnsupportedOperationException("File can't contain any entry");
+        throw new FileTreatmentException("file cannot contain any entry", new UnsupportedOperationException());
     }
 
     @Override
