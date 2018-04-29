@@ -25,6 +25,9 @@ public class StreamExample {
                                     .forEach(n -> System.out.println(n));
                         }
                 );
+
+        Stream.of(Arrays.asList("kevin", "jack").toArray())
+                .forEach(n -> System.out.println(n.toString().toUpperCase()));
     }
 }
 
