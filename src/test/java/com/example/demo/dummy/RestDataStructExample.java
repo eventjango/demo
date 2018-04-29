@@ -35,6 +35,20 @@ public class RestDataStructExample {
     }
 
     @Test
+    public void stack(){
+
+        Stack<? super String> stack = new Stack<>();
+
+        stack.addAll(Arrays.asList("kevin", "jack", "may"));
+        stack.push("me");
+
+        assertEquals(4, stack.size());
+        assertEquals("me", stack.pop());
+        assertEquals(3, stack.size());
+
+    }
+
+    @Test
     public void queue(){
 
         Queue<? super String> queue = new ArrayDeque<>(Arrays.asList("kevin", "jack", "may"));
