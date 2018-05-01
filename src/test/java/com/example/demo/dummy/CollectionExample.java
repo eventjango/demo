@@ -9,10 +9,17 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+
+/**
+ * add(all), remove(all), removeIf, retailAll, iterator, contains(all), clear, toArray, isEmpty, Stream
+ */
 @Log
 public class CollectionExample {
 
 
+    /**
+     * Collection.add(E e) : boolean
+     */
     @Test(expected = UnsupportedOperationException.class)
     public void add(){
 
@@ -26,6 +33,9 @@ public class CollectionExample {
     }
 
 
+    /**
+     * Collection.addAll(Collection</? extends E> c) : boolean
+     */
     @Test
     public void addAll(){
 
@@ -42,6 +52,9 @@ public class CollectionExample {
     }
 
 
+    /**
+     * Collection.remove(Object o) : boolean
+     */
     @Test
     public void remove(){
 
@@ -53,6 +66,9 @@ public class CollectionExample {
     }
 
 
+    /**
+     * Collection.removeAll(Collection</?> c) : boolean
+     */
     @Test
     public void removeAll(){
 
@@ -69,6 +85,9 @@ public class CollectionExample {
     }
 
 
+    /**
+     * Collection.retainAll(Collection</?> c) : boolean
+     */
     @Test
     @Synchronized
     public void retainAll(){
@@ -82,6 +101,9 @@ public class CollectionExample {
         assertTrue(!collection.contains("may"));
     }
 
+    /**
+     * Collection.removeIf(Predicate</? super E> filter) : boolean
+     */
     @Test
     public void removeIf(){
 
@@ -97,7 +119,9 @@ public class CollectionExample {
     }
 
 
-
+    /**
+     * Collection.iterator() : Iterator</E e>
+     */
     @Test
     public void iterator(){
 
@@ -119,6 +143,10 @@ public class CollectionExample {
     }
 
 
+    /**
+     * Collection.toArray() : Object[]
+     * Collection.toArray(T[] t) : T[]
+     */
     @Test
     public void toArray(){
 
