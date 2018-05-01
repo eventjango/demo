@@ -9,10 +9,17 @@ import java.util.function.UnaryOperator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * index, get, set, subList, listIterator, sort, replaceAll
+ */
 
 @Log
 public class ListExample {
 
+
+    /**
+     * List.add(int index, E e) : boolean
+     */
     @Test
     public void addAt(){
 
@@ -37,6 +44,9 @@ public class ListExample {
     }
 
 
+    /**
+     * List.remove(int index) : Object
+     */
     @Test
     public void removeAt(){
 
@@ -63,6 +73,41 @@ public class ListExample {
     }
 
 
+    /**
+     * List.get(int index) : Object
+     * List.set(int index, E element) : Object // 이전 오브젝트
+     */
+    @Test
+    public void getAndSet(){
+
+        List<? super String> list = new ArrayList<>();
+
+        list.addAll(Arrays.asList("kevin", "jack", "may"));
+        assertEquals(3, list.size());
+
+        assertEquals(list.get(0), "kevin");
+        assertEquals(list.set(0, "kevin".toUpperCase()), "kevin"); // 변하기전 이전 아이를 리턴한다
+        assertEquals(list.get(0), "KEVIN");
+
+    }
+
+    /**
+     * List.subList(int index, int count) : List</E>
+     */
+
+    @Test
+    public void subList(){
+
+        List<? super String> list = Arrays.asList("kevin", "jack", "may");
+
+        System.out.println(list.subList(0, list.size() - 1));
+        System.out.println(list.subList(list.size()/2, list.size()));
+    }
+
+
+    /**
+     * List.indexOf(Object o) : int
+     */
     @Test
     public void indexOf(){
 
@@ -90,6 +135,10 @@ public class ListExample {
     }
 
 
+    /**
+     * List.listIterator() : ListIterator</E>
+     * List.listIterator(int index) : ListIterator</E>
+     */
     @Test
     public void listIterator(){
 
@@ -164,6 +213,9 @@ public class ListExample {
     }
 
 
+    /**
+     * List.sort(Comparator</? super E> c) : void
+     */
     @Test
     public void sort(){
 
@@ -207,10 +259,13 @@ public class ListExample {
 
             List<? extends String> list = (List<? extends String>) listsIterator.next();
 
-            if(lists.indexOf(list) == 0)
-                list.sort(Comparator.comparing(String::length, Comparator.naturalOrder()));
-            else if(lists.indexOf(list) == 1)
-                list.sort(Comparator.comparing(String::length, Comparator.reverseOrder()));
+            int __current_index = lists.indexOf(list);
+
+            switch (__current_index){
+                case 0 : list.sort(Comparator.comparing(String::length, Comparator.naturalOrder())); break;
+                case 1 : list.sort(Comparator.comparing(String::length, Comparator.reverseOrder())); break;
+            }
+
 
         }
 
@@ -218,6 +273,12 @@ public class ListExample {
 
     }
 
+
+    /**
+     * List.replaceAll(UnaryOperator</? E> operator) : void
+     *
+     * UnaryOperator : x -> x;
+     */
     @Test
     public void replaceAll(){
 
