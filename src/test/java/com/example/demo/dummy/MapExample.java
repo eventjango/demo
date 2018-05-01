@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.BiFunction;
 
 public class MapExample {
 
@@ -19,7 +20,7 @@ public class MapExample {
         map.putIfAbsent("level", (Integer) map.getOrDefault("code", -1) + 1);
         assertTrue(map.containsKey("level"));
 
-        // twofactor function compute : (k, v) -> v
+        // two factor function compute : (k, v) -> v
         map.computeIfPresent("level",
                 (string, integer) ->
                 {
@@ -93,6 +94,9 @@ public class MapExample {
     }
 
 
+    /**
+     * Map.replaceAll <- BiFunction : (? super String, ? super Object) -> ?
+     */
     @Test
     public void replaceAll(){
 

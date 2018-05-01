@@ -40,7 +40,7 @@ public class SetExample {
         TreeSet<? super String> treeSet = new TreeSet<>(Arrays.asList("kevin", "jack", "may"));
         assertEquals(3, treeSet.size());
 
-        Comparator comparator = Comparator.comparing(string -> string.toString().length(), Comparator.naturalOrder());
+        Comparator comparator = Comparator.comparing(string_super -> string_super.toString().length(), Comparator.naturalOrder());
 
         List<? super String> list = new ArrayList<>(treeSet);
         Collections.sort(list, comparator.reversed());
@@ -83,6 +83,17 @@ public class SetExample {
         log.info("treeSet : " + treeSet.toString());
     }
 
+
+    @Test
+    public void firstAndLast(){
+
+        TreeSet<? super String> treeSet = new TreeSet<>(Comparator.comparing(String::length, Comparator.naturalOrder()));
+        treeSet.addAll(Arrays.asList("kevin", "jack", "may"));
+
+        assertEquals(3, treeSet.size());
+        assertEquals("may", treeSet.first());
+        assertEquals("kevin", treeSet.last());
+    }
 
     @Test // 초과
     public void headSet(){

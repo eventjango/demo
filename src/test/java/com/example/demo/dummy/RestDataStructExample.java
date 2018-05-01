@@ -34,6 +34,9 @@ public class RestDataStructExample {
         }
     }
 
+    /**
+     * 후입선출 last out
+     */
     @Test
     public void stack(){
 
@@ -48,6 +51,9 @@ public class RestDataStructExample {
 
     }
 
+    /**
+     * 선입선출 first out
+     */
     @Test
     public void queue(){
 
