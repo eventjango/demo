@@ -36,6 +36,16 @@ public class StringExample {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("kevin");
 
+        exit:
+        {
+
+            while(true){
+
+                System.out.println("todo fuck");
+                break exit;
+            }
+
+        }
         System.out.println(stringBuilder.toString());
     }
 }
