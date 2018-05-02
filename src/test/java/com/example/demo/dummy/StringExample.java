@@ -3,10 +3,7 @@ package com.example.demo.dummy;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StringExample {
 
@@ -31,5 +28,14 @@ public class StringExample {
         Arrays.asList(result)
                 .forEach(System.out::println);
 
+    }
+
+    @Test
+    public void stringBuilder(){
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("kevin");
+
+        System.out.println(stringBuilder.toString());
     }
 }
