@@ -28,9 +28,11 @@ public class StringExample {
         String joinString = String.join(StringUtils.SPACE, Arrays.asList("kevin", "jack", "may"));
         System.out.println("joinString : " + joinString);
 
-        String[] result = joinString.split("\\s+");
+        String[] result = joinString.split("\\s");
 
         Arrays.asList(result)
+                .stream()
+                .map(string -> string.toUpperCase())
                 .forEach(System.out::println);
 
     }
