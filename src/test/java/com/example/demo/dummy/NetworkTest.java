@@ -12,7 +12,7 @@ import java.util.Queue;
 class Network{
 
     @Data
-    public class Member{
+    protected class Member{
 
         private String name;
         private Queue<Member> others;
@@ -53,7 +53,7 @@ public class NetworkTest {
         Network network = new Network();
         Network.Member member = network.create("kevin");
         member.join();
-        member.leave();
+        /*member.leave();*/
 
         System.out.println(network.members());
     }
