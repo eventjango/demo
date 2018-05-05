@@ -13,12 +13,11 @@ public interface RandomInt {
     }
 }
 
-interface RandomImsi{
+interface RandomImsi<Integer>{
 
     default int value(int from, int to){
         return RandomInt.get(from, to);
     };
-
 }
 
 class RandomIntStub implements RandomInt, RandomImsi
