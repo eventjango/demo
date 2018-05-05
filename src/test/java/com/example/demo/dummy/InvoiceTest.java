@@ -46,6 +46,11 @@ class InvoiceChild extends Invoice{
 
         items.add(item);
     }
+
+    public void addItem(Item item){
+        item.name = item.name.toUpperCase();
+        super.addItem(item);
+    }
 }
 
 
