@@ -4,10 +4,7 @@ package com.example.demo.dummy;
 import lombok.Data;
 import org.junit.Test;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 class Network{
 
@@ -51,8 +48,15 @@ public class NetworkTest {
     public void create(){
 
         Network network = new Network();
-        Network.Member member = network.create("kevin");
-        member.join();
+        Network.Member kevin = network.create("kevin");
+
+        kevin.join();
+        kevin.setOthers(new ArrayDeque<>(
+                Arrays.asList(
+                        network.create("jack"),
+                        network.create("may")
+                )
+        ));
         /*member.leave();*/
 
         System.out.println(network.members());
