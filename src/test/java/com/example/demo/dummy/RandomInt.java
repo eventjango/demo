@@ -13,5 +13,18 @@ public interface RandomInt {
     }
 }
 
-class RandomIntStub implements RandomInt
-{}
+interface RandomImsi{
+
+    default int value(int from, int to){
+        return RandomInt.get(from, to);
+    };
+
+}
+
+class RandomIntStub implements RandomInt, RandomImsi
+{
+    @Override
+    public int value(int from, int to) {
+        return RandomImsi.super.value(from, to);
+    }
+}
