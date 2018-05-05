@@ -45,7 +45,7 @@ public class ArrayExample {
 
         new ArrayList<>(Arrays.asList(result))
                 .stream()
-                .map(string -> string.toUpperCase())
+                .map(String::toUpperCase)
                 .forEach(System.out::println);
     }
 

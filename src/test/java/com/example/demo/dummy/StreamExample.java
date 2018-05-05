@@ -1,5 +1,6 @@
 package com.example.demo.dummy;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -28,6 +29,18 @@ public class StreamExample {
 
         Stream.of(Arrays.asList("kevin", "jack").toArray())
                 .forEach(n -> System.out.println(n.toString().toUpperCase()));
+    }
+
+    @Test
+    public void toArray(){
+
+        String[] result =
+
+        Arrays.asList("kevin", "jack")
+                .stream()
+                .toArray(value -> new String[value]);
+
+        System.out.println(String.join(StringUtils.SPACE, result));
     }
 }
 
