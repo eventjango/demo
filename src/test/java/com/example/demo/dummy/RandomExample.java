@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java.security.SecureRandom;
 import java.util.Random;
+import java.util.Stack;
+import java.util.function.IntConsumer;
+import java.util.stream.IntStream;
 
 final public class RandomExample {
 
@@ -36,5 +39,30 @@ final public class RandomExample {
         int next = secureRandom.nextInt(10) + 1;
 
         System.out.println("secure next : " + next);
+    }
+
+
+    @Test
+    final public void randomInt(){
+
+        IntStream.range(0, 20)
+                .forEach(
+                        value -> {
+                            System.out.println("value : " + RandomInt.get(1, 4));
+                        }
+                );
+    }
+
+
+    @Test
+    final public void randomValue(){
+
+        IntStream.range(0, 20)
+                .forEach(
+                        value ->
+                        {
+                            System.out.println("value : " + new RandomIntStub().value(1, 10));
+                        }
+                );
     }
 }
