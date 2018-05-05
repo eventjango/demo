@@ -30,6 +30,9 @@ public class ArrayExample {
     }
 
 
+    /**
+     * Arrays.copyOf(target, size) : Target[]
+     */
     @Test
     public void copy(){
 
@@ -41,11 +44,16 @@ public class ArrayExample {
         System.out.println("result : " + Arrays.toString(result));
 
         new ArrayList<>(Arrays.asList(result))
+                .stream()
+                .map(string -> string.toUpperCase())
                 .forEach(System.out::println);
     }
 
 
-    @Test
+    /**
+     * Arrays.sort(target, comparator) : void
+     */
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void fillAndSort(){
 
         String[] array = {"kevin", "jack", "may"};
@@ -53,5 +61,13 @@ public class ArrayExample {
 
         System.out.println("sort : " + Arrays.toString(array));
 
+
+        String[] fill = {"kevin"};
+        Arrays.fill(fill, "jack");
+
+        fill[0] = "may";
+        fill[1] = "me";
+
+        System.out.println("fill : " + Arrays.toString(fill));
     }
 }
