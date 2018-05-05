@@ -36,7 +36,6 @@ class Network{
         return new Member(name);
     }
 
-
     public List<Member> members(){
         return members;
     }
