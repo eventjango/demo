@@ -57,21 +57,65 @@ public class LambdaExample {
                 };*/
                 Runnable action = () -> System.out.println("text : " + text);
 
-                IntStream.range(1, count)
-                        .forEach(
-                                value -> new Thread(action).start()
-                        );
+                IntStream.range(1, count).forEach(value -> new Thread(action).start());
 
                 /*new Thread(runnable).start();*/
             }
         }
-
 
         //-- 람다 안에서 값이 변하면 안되고 값이 변하는 만큼 람다를 돌려야 한다.
 
         new RepeatMessenger().repeatMessage("fucking!", 10);
     }
 
+    @Test
+    public void closureAndCallback(){
+
+        new RepeatTemplate("fuck", 5).applyCallback(
+
+                new RepeatMessenger() {
+
+                    int count;
+
+                    @Override
+                    public void repeatMessage(String text, int count) {
+
+                        this.count = count;
+
+                        Runnable runnable = () ->
+                        {
+                            while (this.count-- > 0){
+                                System.out.println("text : " + text);
+                            }
+                        };
+
+                        new Thread(runnable).start();
+                    }
+                }
+        );
+    }
+
+}
 
 
+interface RepeatMessenger{
+
+    void repeatMessage(String text, int count);
+}
+
+
+class RepeatTemplate{
+
+    String text;
+    int count;
+
+
+    RepeatTemplate(String text, int count){
+        this.text = text;
+        this.count = count;
+    }
+
+    void applyCallback(RepeatMessenger repeatMessenger){
+        repeatMessenger.repeatMessage(text, count);
+    }
 }
