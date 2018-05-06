@@ -13,7 +13,7 @@ public class VisitableTypeCaster {
 
         try {
 
-           result = (T) typeCaster.apply(visitable, typeObject);
+            result = (T) typeCaster.apply(visitable, typeObject);
         }
 
         catch (ClassCastException e){
