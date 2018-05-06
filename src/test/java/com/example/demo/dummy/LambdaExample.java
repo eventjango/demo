@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
 public class LambdaExample {
@@ -16,6 +15,9 @@ public class LambdaExample {
 
         Comparator<String> comparator = (a, b) -> a.length() - b.length();
         Arrays.sort(strings, comparator.reversed());
+        Arrays.sort(strings, Comparator.comparing(String::length, Comparator.nullsFirst(Comparator.reverseOrder())));
+
+        System.out.println(Arrays.toString(strings));
     }
 
     @Test
@@ -35,5 +37,41 @@ public class LambdaExample {
 
         new Repeat().repeat(10, () -> System.out.println("fuck action"));
     }
+
+
+    @Test
+    public void closure(){
+
+        class RepeatMessenger{
+
+            //--- text와 count는 free value (effectively final)
+            // 파라미터와 메서드 호출 스택이 사라져도 람다가 캡처한다
+            void repeatMessage(String text, int count){
+
+                /*Runnable runnable = () ->
+                {
+                    IntStream.range(1, count)
+                            .forEach(
+                                    value -> System.out.println("text : " + text)
+                            );
+                };*/
+                Runnable action = () -> System.out.println("text : " + text);
+
+                IntStream.range(1, count)
+                        .forEach(
+                                value -> new Thread(action).start()
+                        );
+
+                /*new Thread(runnable).start();*/
+            }
+        }
+
+
+        //-- 람다 안에서 값이 변하면 안되고 값이 변하는 만큼 람다를 돌려야 한다.
+
+        new RepeatMessenger().repeatMessage("fucking!", 10);
+    }
+
+
 
 }
