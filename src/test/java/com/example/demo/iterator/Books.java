@@ -6,9 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * book을 가질 iterable의 역할
+ */
 @Data
 public class Books implements Iterable {
 
+
+    /**
+     * books를 순회할 역할
+     */
     class BooksIterator implements Iterator{
 
         // has
@@ -50,6 +57,11 @@ public class Books implements Iterable {
         return bookList.size();
     }
 
+
+    /**
+     * 자기에 대한 이터레이터를 생성할 책임
+     * @return
+     */
 
     // create
     @Override
