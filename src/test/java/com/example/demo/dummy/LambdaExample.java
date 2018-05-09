@@ -94,18 +94,17 @@ public class LambdaExample {
                 }
         );
     }
-
 }
 
 
-interface RepeatMessenger{
+interface RepeatMessenger {
 
     void repeatMessage(String text, int count);
 }
 
 
-class RepeatTemplate{
-
+class RepeatTemplate
+{
     String text;
     int count;
 
