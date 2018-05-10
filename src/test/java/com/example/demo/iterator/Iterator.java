@@ -2,7 +2,7 @@ package com.example.demo.iterator;
 
 
 /**
- * Iterable에 접근해서 요소를 순회하는 역할
+ * Iterable에 접근해서 요소를 순회하는 역할, iterable을 소유할 책임을 갖는다
  */
 public interface Iterator {
 

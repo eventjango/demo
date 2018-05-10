@@ -18,7 +18,7 @@ public class Books implements Iterable {
      */
     class BooksIterator implements Iterator{
 
-        // has
+        // has (소유)
         Books books;
 
         int index;
@@ -38,6 +38,8 @@ public class Books implements Iterable {
             return books.get(index++);
         }
     }
+
+    //-- 요소를 삽입, 삭제, 카운팅할 책임
 
     private List<Book> bookList = new ArrayList<>();
 
