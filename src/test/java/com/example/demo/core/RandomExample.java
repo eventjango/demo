@@ -1,11 +1,9 @@
-package com.example.demo.dummy;
+package com.example.demo.core;
 
 import org.junit.Test;
 
 import java.security.SecureRandom;
 import java.util.Random;
-import java.util.Stack;
-import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
 final public class RandomExample {

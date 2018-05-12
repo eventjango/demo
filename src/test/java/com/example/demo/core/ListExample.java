@@ -1,10 +1,9 @@
-package com.example.demo.dummy;
+package com.example.demo.core;
 
 import lombok.extern.java.Log;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.function.UnaryOperator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

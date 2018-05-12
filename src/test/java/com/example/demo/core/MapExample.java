@@ -1,10 +1,9 @@
-package com.example.demo.dummy;
+package com.example.demo.core;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.function.BiFunction;
 
 public class MapExample {
 

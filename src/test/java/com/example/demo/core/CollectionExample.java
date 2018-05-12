@@ -1,8 +1,7 @@
-package com.example.demo.dummy;
+package com.example.demo.core;
 
 import lombok.Synchronized;
 import lombok.extern.java.Log;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
